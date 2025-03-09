@@ -12,4 +12,5 @@ public interface IPatientController {
     List<Patient> getAllPatientsByAdmittingDoctorDepartment(String department);
     List<Patient> getAllPatientsWhoseDoctorsStatusIsOff();
     void savePatient(Patient patient);
+    void updatePatient(Patient patient, Integer id);
 }

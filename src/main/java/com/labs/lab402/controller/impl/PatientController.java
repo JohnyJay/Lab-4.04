@@ -60,4 +60,11 @@ public class PatientController implements IPatientController {
     public void savePatient(@RequestBody @Valid Patient patient) {
         patientService.savePatient(patient);
     }
+
+    @PutMapping("/patients/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @Override
+    public void updatePatient(@RequestBody @Valid Patient patient,@PathVariable Integer id) {
+        patientService.updatePatient(patient,id);
+    }
 }

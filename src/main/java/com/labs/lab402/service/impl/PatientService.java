@@ -47,4 +47,12 @@ public class PatientService implements IPatientService {
     public void savePatient(Patient patient) {
         patientRepository.save(patient);
     }
+
+    @Override
+    public void updatePatient(Patient patient, Integer id) {
+        Optional<Patient> optionalPatient = patientRepository.findById(id);
+        if(optionalPatient.isEmpty()) return;
+        patient.setPatientId(optionalPatient.get().getPatientId());
+        patientRepository.save(patient);
+    }
 }
