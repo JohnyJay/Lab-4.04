@@ -2,6 +2,7 @@ package com.labs.lab402.model;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
@@ -21,7 +22,6 @@ public class Patient {
     private LocalDate dateOfBirth;
 
     @ManyToOne
-    @JsonManagedReference
     @JoinColumn(name="admitted_by")
     private Employee employee;
 

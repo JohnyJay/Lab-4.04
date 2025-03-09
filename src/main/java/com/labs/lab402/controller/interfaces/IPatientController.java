@@ -11,4 +11,5 @@ public interface IPatientController {
     List<Patient> getAllPatientsByDateOfBirthRange(LocalDate startDate, LocalDate finishDate);
     List<Patient> getAllPatientsByAdmittingDoctorDepartment(String department);
     List<Patient> getAllPatientsWhoseDoctorsStatusIsOff();
+    void savePatient(Patient patient);
 }

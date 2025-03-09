@@ -3,12 +3,11 @@ package com.labs.lab402.controller.impl;
 import com.labs.lab402.controller.interfaces.IPatientController;
 import com.labs.lab402.model.Patient;
 import com.labs.lab402.service.interfaces.IPatientService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -43,15 +42,22 @@ public class PatientController implements IPatientController {
     }
 
 
-    @GetMapping("patients/admitted/{department}")
+    @GetMapping("/patients/admitted/{department}")
     @Override
     public List<Patient> getAllPatientsByAdmittingDoctorDepartment(@PathVariable String department) {
         return patientService.getAllPatientsByAdmittingDoctorDepartment(department);
     }
 
-    @GetMapping("patients/off")
+    @GetMapping("/patients/off")
     @Override
     public List<Patient> getAllPatientsWhoseDoctorsStatusIsOff() {
         return patientService.getAllPatientsWhoseDoctorsStatusIsOff();
+    }
+
+    @PostMapping(value = "/patients/post",consumes = "application/json" )
+    @ResponseStatus(HttpStatus.CREATED)
+    @Override
+    public void savePatient(@RequestBody @Valid Patient patient) {
+        patientService.savePatient(patient);
     }
 }

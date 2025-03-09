@@ -1,6 +1,7 @@
 package com.labs.lab402.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -21,6 +22,6 @@ public class Employee {
         private STATUS status;
 
         @OneToMany(mappedBy = "employee")
-        @JsonBackReference
+        @JsonIgnore
         List<Patient> patientList;
 }

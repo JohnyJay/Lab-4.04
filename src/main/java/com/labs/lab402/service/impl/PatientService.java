@@ -42,4 +42,9 @@ public class PatientService implements IPatientService {
     public List<Patient> getAllPatientsWhoseDoctorsStatusIsOff() {
         return patientRepository.getAllByDoctorsStatusIsOff();
     }
+
+    @Override
+    public void savePatient(Patient patient) {
+        patientRepository.save(patient);
+    }
 }
