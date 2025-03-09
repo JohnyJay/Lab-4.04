@@ -1,6 +1,7 @@
 package com.labs.lab402.service.interfaces;
 
 import com.labs.lab402.model.Employee;
+import com.labs.lab402.model.Patient;
 import com.labs.lab402.model.STATUS;
 
 import java.util.List;
@@ -10,4 +11,5 @@ public interface IEmployeeService {
     Employee getEmployeeById(String id);
     List<Employee> getAllEmployeesByStatus(STATUS status);
     List<Employee> getAllEmployeesByDepartment(String department);
+    void saveEmployee(Employee employee);
 }

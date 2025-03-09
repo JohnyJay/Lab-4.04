@@ -4,10 +4,10 @@ import com.labs.lab402.controller.interfaces.IEmployeeController;
 import com.labs.lab402.model.Employee;
 import com.labs.lab402.model.STATUS;
 import com.labs.lab402.service.interfaces.IEmployeeService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -41,4 +41,13 @@ public class EmployeeController implements IEmployeeController {
     public List<Employee> getAllEmployeesByDepartment(@PathVariable String department) {
         return employeeService.getAllEmployeesByDepartment(department);
     }
+
+    @PostMapping("/employee")
+    @ResponseStatus(HttpStatus.CREATED)
+    @Override
+    public void saveEmployee(@RequestBody @Valid Employee employee) {
+        employeeService.saveEmployee(employee);
+    }
+
+
 }

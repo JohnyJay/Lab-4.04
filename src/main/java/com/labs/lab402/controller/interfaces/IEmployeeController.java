@@ -10,4 +10,5 @@ public interface IEmployeeController {
     Employee getEmployeeById(String id);
     List<Employee> getAllEmployeesByStatus(STATUS status);
     List<Employee> getAllEmployeesByDepartment(String department);
+    void saveEmployee(Employee employee);
 }
