@@ -45,4 +45,23 @@ public class EmployeeService implements IEmployeeService {
         log.info("Attempting to save "+ employee.toString());
         employeeRepository.save(employee);
     }
+
+    @Override
+    public void updateEmployeeStatus(STATUS status, Integer id) {
+        Optional<Employee> employeeOptional = employeeRepository.findById(id);
+        if(employeeOptional.isEmpty()) return;
+        Employee employee = employeeOptional.get();
+        employee.setStatus(status);
+        log.info("Attempting to save "+employee.toString());
+        employeeRepository.save(employee);
+    }
+
+    @Override
+    public void updateEmployeeDepartment(String department, Integer id) {
+        Optional<Employee> employeeOptional = employeeRepository.findById(id);
+        if(employeeOptional.isEmpty()) return;
+        Employee employee = employeeOptional.get();
+        employee.setDepartment(department);
+        employeeRepository.save(employee);
+    }
 }

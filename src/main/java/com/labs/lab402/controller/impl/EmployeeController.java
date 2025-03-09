@@ -1,5 +1,7 @@
 package com.labs.lab402.controller.impl;
 
+import com.labs.lab402.controller.dto.DoctorDepartmentDTO;
+import com.labs.lab402.controller.dto.DoctorStatusDTO;
 import com.labs.lab402.controller.interfaces.IEmployeeController;
 import com.labs.lab402.model.Employee;
 import com.labs.lab402.model.STATUS;
@@ -47,6 +49,20 @@ public class EmployeeController implements IEmployeeController {
     @Override
     public void saveEmployee(@RequestBody @Valid Employee employee) {
         employeeService.saveEmployee(employee);
+    }
+
+    @Override
+    @PatchMapping("/employees/status/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void updateEmployeeStatus(@RequestBody @Valid DoctorStatusDTO doctorStatusDTO, @PathVariable Integer id){
+        employeeService.updateEmployeeStatus(doctorStatusDTO.getStatus(),id);
+    }
+
+    @Override
+    @PatchMapping("/employees/department/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void updateEmployeeDepartment(@RequestBody @Valid DoctorDepartmentDTO doctorDepartmentDTO,@PathVariable Integer id) {
+        employeeService.updateEmployeeDepartment(doctorDepartmentDTO.getDepartment(), id);
     }
 
 

@@ -54,7 +54,7 @@ public class PatientController implements IPatientController {
         return patientService.getAllPatientsWhoseDoctorsStatusIsOff();
     }
 
-    @PostMapping(value = "/patients/post",consumes = "application/json" )
+    @PostMapping(value = "/patients",consumes = "application/json" )
     @ResponseStatus(HttpStatus.CREATED)
     @Override
     public void savePatient(@RequestBody @Valid Patient patient) {

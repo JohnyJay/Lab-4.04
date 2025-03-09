@@ -1,5 +1,7 @@
 package com.labs.lab402.service.interfaces;
 
+import com.labs.lab402.controller.dto.DoctorDepartmentDTO;
+import com.labs.lab402.controller.dto.DoctorStatusDTO;
 import com.labs.lab402.model.Employee;
 import com.labs.lab402.model.Patient;
 import com.labs.lab402.model.STATUS;
@@ -12,4 +14,6 @@ public interface IEmployeeService {
     List<Employee> getAllEmployeesByStatus(STATUS status);
     List<Employee> getAllEmployeesByDepartment(String department);
     void saveEmployee(Employee employee);
+    void updateEmployeeStatus(STATUS status, Integer id);
+    void updateEmployeeDepartment(String department, Integer id);
 }
