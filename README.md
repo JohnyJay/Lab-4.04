@@ -1,8 +1,7 @@
 ![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
 
-# LAB Java | Add and Update
 
-## Answer to Question 6
+## Short Answer
 
 I used different routes to update the patient information and to update the employee's department. For the patient, I used a PUT route so thay the user can update any field, while for the employee's department I used a PATCH route so only the department would be affected.
 
@@ -14,6 +13,7 @@ Both PUT and PATCH use system resources and have their own routes and setup. PUT
 
 
 
+# LAB Java | Add and Update
 
 
 ## Introduction
